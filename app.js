@@ -5,6 +5,13 @@ const WebSocket = require('ws');
 
 const port = process.env.PORT || 5000;
 const app = express();
+
+app.get('/', (_req, res) => {
+  return res.json({
+    message: 'Hello World'
+  });
+});
+
 const server = createServer(app);
 
 const wss = new WebSocket.Server({server});
