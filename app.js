@@ -1,5 +1,6 @@
 const express = require('express');
 const { createServer } = require('http');
+const { parse } = require('path');
 const WebSocket = require('ws');
 
 
@@ -26,6 +27,8 @@ wss.on('connection', (ws) => {
 
       if (parsed.type === 'chat') {
         const newMsg = JSON.stringify({
+          avatarUrl: parsed.avatarUrl,
+          weaponUrl: parsed.weaponUrl,
           content: parsed.content,
           username: parsed.username
         });
